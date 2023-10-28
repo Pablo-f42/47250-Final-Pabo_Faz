@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import NavBar from './NavBar/NavBar'
-import ItemListContainer from './ItemListContainer/ItemListContainer'
+import React from 'react';
+import ItemListContainer from './ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
+import NavBar from './NavBar/NavBar';
+import { useState } from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <NavBar/>
-      <ItemListContainer greeting = "¡Hola Amikosss!" />
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path='/' element={ <ItemListContainer/> } />
+          <Route path='/categoria/:idCategoria' element={ <ItemListContainer/> }  />
+          <Route path='/item/:idItem' element={ <ItemDetailContainer/> } />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

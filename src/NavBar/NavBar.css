@@ -6,7 +6,12 @@ header {
 }
 
 li {
+    font-family: 'Public Sans', sans-serif;
     display: inline-block;
     margin: 10px;
     cursor: pointer;
+}
+
+.logo {
+    width: 200px;
 }

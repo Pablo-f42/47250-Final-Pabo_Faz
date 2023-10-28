@@ -1,14 +1,35 @@
 const misProductos = [
-    { id: 1, nombre: "Aventura", precio: 9300, img: "./img/Gravel/Aventura.jpg" },
-    { id: 2, nombre: "Grail", precio: 7200, img: "./img/Gravel/Grail.jpg" },
-    { id: 3, nombre: "Spectral", precio: 8500, img: "./img/Montaña/Spectral.jpg" },
-    { id: 4, nombre: "Grand", precio: 1500, img: "./img/Montaña/Grand.jpg" },
+    { id: "1", nombre: "Aventura", precio: 9300, img: "../img/Gravel/Aventura.jpg", idCat: "2" },
+    { id: "2", nombre: "Grail", precio: 7200, img: "../img/Gravel/Grail.jpg", idCat: "2" },
+    { id: "3", nombre: "Spectral", precio: 8500, img: "../img/Montana/Spectral.jpg", idCat: "3" },
+    { id: "4", nombre: "Grand", precio: 1500, img: "../img/Montana/Grand.jpg", idCat: "3" },
+    { id: "5", nombre: "Endurace", precio: 1500, img: "../img/Ruta/Endurace.jpg", idCat: "4" },
+    { id: "6", nombre: "Ultimate", precio: 1500, img: "../img/Ruta/Ultimate.jpg", idCat: "4" },
 ]
 
 export const getProductos = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(misProductos);
-        }, 2000)
+        }, 100)
+    })
+}
+
+export const getUnProducto = (id) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const producto = misProductos.find(item => item.id === id);
+            resolve(producto);
+        }, 100)
+    })
+}
+
+
+export const getProductosPorCategoria = (idCategoria) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const productosCategoria = misProductos.filter(item => item.idCat === idCategoria);
+            resolve(productosCategoria);
+        }, 100)
     })
 }
